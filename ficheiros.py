@@ -14,3 +14,16 @@ def guardarFicheiro (data, ficheiro):
     json.dump(data, file, ensure_ascii=False, indent = 4)
     file.close()
 
+#inserirNovo(ata, dataset)
+#ideia é colocar os inputos para o utilizador meter os campos da ata.´
+#pergunta individualmente?? ou so uma vez e o user poe tudo numa linha?
+def inserirNovo (ata, dataset):
+    dataset.append(ata)
+    return dataset
+
+#perguntar qual e a forma de apagar o ficheiro
+def apagarPub (ata, dataset):
+
+    return dataset
+
+inserirNovo()
