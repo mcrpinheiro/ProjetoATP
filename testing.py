@@ -1,4 +1,5 @@
 import json
+from ficheiros import *
 #TESTING DOC
 
 
@@ -77,8 +78,6 @@ novaata =     {
         "title": "Total gastrectomy for gastric carcinoma: a clinical, radiological and laboratory assessment of different procedures and of a new method of gastric reconstruction.",
         "url": "https://www.actamedicaportuguesa.com/revista/index.php/amp/article/view/4157"
     }
-inserirNovo(novaata, atas)
-print(atas)
 
 def criarLista (dic):
     lista = []
@@ -97,3 +96,5 @@ def criarLista (dic):
     lista.append(dic['title'])
     lista.append(dic['url'])
     return lista
+
+print(apagarPub('2','Maria' ,atas))
