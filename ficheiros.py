@@ -21,9 +21,14 @@ def inserirNovo (ata, dataset):
     dataset.append(ata)
     return dataset
 
+
+def identificarAta (info, dataset):
+    if info == '1':
+        return 'nam'
+    return 
 #perguntar qual e a forma de apagar o ficheiro
 def apagarPub (ata, dataset):
 
     return dataset
 
-inserirNovo()
+print(carregarFicheiro('ata_medica_papers.json'))
