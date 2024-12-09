@@ -144,6 +144,9 @@ abcd = {  "abstract": "Resumo Introdução: A perturbação esquizofreniforme ma
         "url": "https://www.actamedicaportuguesa.com/revista/index.php/amp/article/view/21714"
     }
 a= "asnjahsahsa"
-print(findPost('3',"https://doi.org/10.20344/amp.21714", atas))
+#print(findPost('3',"https://doi.org/10.20344/amp.21714", atas))
 #print(list(a.items()))
 #print(countKeys(loadFile('ata_medica_papers.json')))
+
+
+print(listPosts(atas))

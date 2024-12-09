@@ -62,7 +62,16 @@ def checkMonth (year, month, day):
             return isLeapYear(year, day)
     return False
 
-
+def splitDate(date):
+    newDate = date.split('-')
+    isFormatValid = False
+    if len(newDate)==3:
+        concatenatedDate = newDate[0] + newDate[1] + newDate[2]
+        if concatenatedDate.isnumeric(): 
+            (year,month,day) = int(newDate[0]), int(newDate[1]), int(newDate[2])
+        else:
+            
+    
 #verifica o formato da data
 def isDate (date):
     newDate = date.split('-')
@@ -127,7 +136,7 @@ def existingKeys (post):
     return postKeys
 
 #formata as atas    
-def formatPost (post):
+def formatPost (post, full = True):
     formattedPost = ""
     formattedKeywords = ""
     formattedDate = ""
@@ -142,8 +151,11 @@ def formatPost (post):
     formattedTitle = f"Title: {post['title']}\n"
     formattedURL = f"URL: {post['url']}"
     
-    formattedPost += formattedAbstract + formattedKeywords + formattedAuthors 
-    formattedPost += formattedDate + formattedDoi + formattedTitle + formattedURL
+    if not full: 
+        formattedPost = formattedTitle + formattedKeywords + formattedDate + formattedAuthors
+    else:
+        formattedPost += formattedAbstract + formattedKeywords + formattedAuthors 
+        formattedPost += formattedDate + formattedDoi + formattedTitle + formattedURL
     return formattedPost
 
 
@@ -159,7 +171,21 @@ def findPost (key, info, dataset):
             i +=1
     return formatPost(postFound)
 
-def listPost (key, info, dataset):
-    
-    return
 
+#listar os campos mais importantes
+def listPosts (dataset):
+    listedPosts = ""
+    i = 1
+    for post in dataset:
+        listedPosts += f'Post {i}\n' + formatPost(post, False)
+        i +=1
+    return listedPosts
+
+#distrib
+#Distribuição de publicações por ano
+def postsPerYear (dataset):
+    postsYear = {}
+
+    for post in dataset:
+        if 
+    return
