@@ -143,10 +143,9 @@ abcd = {  "abstract": "Resumo Introdução: A perturbação esquizofreniforme ma
         "title": "Hospitalizações por Perturbação Esquizofreniforme: Uma Análise Clínica e Demográfica de uma Base de Dados Nacional",
         "url": "https://www.actamedicaportuguesa.com/revista/index.php/amp/article/view/21714"
     }
-a= "asnjahsahsa"
+
 #print(findPost('3',"https://doi.org/10.20344/amp.21714", atas))
 #print(list(a.items()))
 #print(countKeys(loadFile('ata_medica_papers.json')))
-
-
-print(listPosts(atas))
+atas_medicas = loadFile('ata_medica_papers.json')
+print(postsPerYear(atas_medicas))

@@ -1,4 +1,5 @@
 import json
+import matplotlib.pyplot
 
 #loading do ficheiro para o sistema
 def loadFile (fname):
@@ -64,22 +65,19 @@ def checkMonth (year, month, day):
 
 def splitDate(date):
     newDate = date.split('-')
-    isFormatValid = False
+    splitDate = (0,0,0)
     if len(newDate)==3:
         concatenatedDate = newDate[0] + newDate[1] + newDate[2]
         if concatenatedDate.isnumeric(): 
-            (year,month,day) = int(newDate[0]), int(newDate[1]), int(newDate[2])
-        else:
+           splitDate = (int(newDate[0]), int(newDate[1]), int(newDate[2]))
+    return splitDate
             
     
 #verifica o formato da data
 def isDate (date):
-    newDate = date.split('-')
+    (year, month, day) = splitDate(date)
     isFormatValid = False
-    if len(newDate)==3:
-        concatenatedDate = newDate[0] + newDate[1] + newDate[2]
-        if concatenatedDate.isnumeric(): 
-            year,month,day = int(newDate[0]), int(newDate[1]), int(newDate[2])
+    if (year, month, day) != (0,0,0):
             if (day>0 and day<32) and (year <2025 and year>1900):
                 isFormatValid = checkMonth(year, month, day)
     return isFormatValid 
@@ -185,7 +183,16 @@ def listPosts (dataset):
 #Distribuição de publicações por ano
 def postsPerYear (dataset):
     postsYear = {}
-
     for post in dataset:
-        if 
-    return
+        if 'publish_date' in post:
+            if isDate(post['publish_date']):
+                year = str(splitDate(post['publish_date'])[0])
+                if year in postsYear:
+                    postsYear[year]+=1
+                else:
+                    postsYear[year] = 1
+    sortedPostsYear = dict(sorted(postsYear.items(), key = lambda item: item[0]))
+    matplotlib.pyplot.bar(sortedPostsYear.keys(),sortedPostsYear.values())
+    matplotlib.pyplot.xticks(rotation=45)
+    matplotlib.pyplot.show()
+    return sortedPostsYear
