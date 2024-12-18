@@ -1,5 +1,3 @@
-
-
 def countKeysAuthors (authors):
     listAuthors = list(authors)
     nameCount = 0

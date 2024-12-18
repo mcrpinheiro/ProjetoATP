@@ -3,9 +3,13 @@ import matplotlib.pyplot
 
 #loading do ficheiro para o sistema
 def loadFile (fname):
-    file = open(fname, 'r', encoding ='utf-8')
-    data = json.load(file)
-    file.close()
+    data = []
+    try:
+        with open(fname, 'r', encoding ='utf-8') as file:
+            data = json.load(file)
+            file.close()
+    except Exception as e:
+        print('Houve um erro a carregar o ficheiro.')
     return data
     
 #   ensure_ascii para evitaar que caraacteres especiais fiquem em ascii
@@ -15,10 +19,35 @@ def saveFile (data, fname):
     json.dump(data, file, ensure_ascii=False, indent = 4)
     file.close()
 
-#inserirNovo(ata, dataset)
+#inserirNovo(dataset)
 #ideia é colocar os inputos para o utilizador meter os campos da ata.´
 #pergunta individualmente?? ou so uma vez e o user poe tudo numa linha?
-def insertNew (ata, dataset):
+def insertNew (dataset):
+    ata = {}
+    ata['abstract'] = input('Qual o abstract da nova ata?')
+    if input('Deseja adicionar keywords?s/n') == 's': ata['keywords'] = input('Que keywords deseja adicionar à ata?')
+    nrAuthors = input('Quantos autores contribuiram para esta ata?')
+    while not nrAuthors.isnumeric() or int(nrAuthors)<=0:
+        nrAuthors= input('É necessário adicionar pelo menos um autor. Por favor, tente outra vez. Quantos autores contribuiram para esta data?')
+    nrAuthors = int(nrAuthors)
+    i = 1
+    ata['authors'] = []
+    while i<=nrAuthors:
+        author = {}
+        author['name'] = input(f'Qual o nome do autor número {i}?')
+        if input('Deseja adicionar uma afiliação para este autor?s/n') == 's': author['affiliation'] = input('Qual a afilição deste autor?')
+        ata['authors'].append(author)
+        i +=1
+    ata['doi'] = input('Qual o doi desta ata?')
+    ata['pdf'] = input('Qual o link do pdf desta ata?')
+    if input('Deseja adicionar uma data de publicação?s/n') == 's':
+        date =  input('Qual a data de publicação desta ata?')
+        while not isDate(date):
+            date = input('O formato da data está incorreto, por favor submita a mesma no formato AAAA-MM-DD.')
+        ata['publish_date'] = date
+    ata['title'] = input('Qual o título desta ata?')
+    ata['url'] = input('Qual o url desta ata?')
+
     dataset.append(ata)
     return dataset
 
