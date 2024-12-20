@@ -31,5 +31,4 @@ def menu():
         elif selectedOption == '2':
             insertNew(data)
             selectedOption = input('Deseja realizar alguma destas operações?')
-
 menu()

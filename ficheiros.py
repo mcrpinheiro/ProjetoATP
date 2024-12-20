@@ -208,6 +208,18 @@ def listPosts (dataset):
         i +=1
     return listedPosts
 
+def listAuthors (dataset):
+    postsAuthor = {}
+    for post in dataset:
+        for author in post['authors']:
+            if author['name'] in postsAuthor:
+                postsAuthor[author['name']].append(post['title'])
+            else:
+                postsAuthor[author['name']] = [post['title']]
+    postsAuthor = dict(sorted(postsAuthor.items(), key= lambda x: x[0])) #acentos vao p fim
+    return postsAuthor
+
+
 #distrib
 #Distribuição de publicações por ano
 def postsPerYear (dataset):
