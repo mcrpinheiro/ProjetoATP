@@ -237,3 +237,4 @@ def postsPerYear (dataset):
     matplotlib.pyplot.xticks(rotation=45)
     matplotlib.pyplot.show()
     return sortedPostsYear
+
