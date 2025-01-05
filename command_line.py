@@ -59,6 +59,7 @@ def menu():
                 print(findPost(postIdentificator, targetInfo, data))
                 selectedOption = input(selectiveMenu)
         #elif selectedOption == '4':
+
         elif selectedOption == '5':
             postIdentificator = input(keyMenu)
             if postIdentificator not in ['0','1', '2', '3', '4', '5', '6', '7']: 
@@ -75,6 +76,12 @@ def menu():
                     selectedOption = input(selectiveMenu)
                 else: 
                     selectedOption == '5'
+        elif selectedOption == '9':
+            save = input('Deseja guardar as alterações feitas? S/N')
+            if save in ['s', 'S']:
+                saveFile(newData, 'ata_medica_papers.json')
+                print('Alterações guardadas com sucesso!')
+            selectedOption = input(selectiveMenu)
         elif selectedOption == '0':
             if data != newData:
                 save = input('''As alterações feitas à database não foram devidamente guardadas. Deseja guardar as alterações antes de sair?
