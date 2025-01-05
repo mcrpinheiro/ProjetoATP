@@ -28,7 +28,6 @@ def splitDate(date):
            splitDate = (int(newDate[0]), int(newDate[1]), int(newDate[2]))
     return splitDate
             
-    
 #verifica o formato da data
 def isDate (date):
     (year, month, day) = splitDate(date)
@@ -37,3 +36,9 @@ def isDate (date):
             if (day>0 and day<32) and (year <2025 and year>1900):
                 isFormatValid = checkMonth(year, month, day)
     return isFormatValid 
+
+def askForValidDate (questionText, failedQuestionText):
+    date = input(questionText)
+    while not isDate(date):
+        date = input(failedQuestionText)
+    return date

@@ -35,6 +35,6 @@ def countKeys (dataset):
 # 'url': 3595, 
 # 'postsCounter': 3595}
 
-#obrigatorios : abstract, authors, doi, pdf, title, url, name
-#nobrigatorios: keywords, publish_date, affiliation
+#obrigatorios : abstract, authors, doi, title, url, name
+#nobrigatorios: keywords, publish_date, affiliation, pdf
         
