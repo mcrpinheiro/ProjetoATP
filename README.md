@@ -120,6 +120,38 @@ Que operação deseja executar?
 ```
 - Após escolher a opção 3, o sistema questiona qual dos campos desejados para identificar a publicação para listar. Ao escolher o número 2, correspondente ao nome de autor, foi preenchido 'R Anjos'. Após isto, o sistema listou as informações relativas à primeira publicação deste autor.
 
+* Resultado da opção 6, estatísticas de publicações por ano
+```
+Que operação deseja executar?
+                            (1) Ajuda
+                            (2) Criar Publicação
+                            (3) Consulta de Publicação
+                            (4) Consultar Publicações
+                            (5) Eliminar Publicação
+                            (6) Relatório de Estatísticas de Publicações por Ano
+                            (7) Listar Autores
+                            (8) Importar Publicações
+                            (9) Guardar Publicações
+                            (0) Sair6
+2002: 1 publicações
+2006: 1 publicações
+2007: 12 publicações
+2011: 24 publicações
+2012: 90 publicações
+2013: 116 publicações
+2014: 133 publicações
+2015: 117 publicações
+2016: 121 publicações
+2017: 125 publicações
+2018: 100 publicações
+2019: 107 publicações
+2020: 105 publicações
+2021: 107 publicações
+2022: 133 publicações
+2023: 76 publicações
+2024: 61 publicações
+```
+![grafico](https://github.com/mcrpinheiro/ProjetoATP/blob/main/publica%C3%A7%C3%B5es_por_ano.png)
 
 ## Interface
 
