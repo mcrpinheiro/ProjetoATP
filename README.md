@@ -132,7 +132,7 @@ Que operação deseja executar?
 * Primeiramente, é necessário carregar um ficheiro JSON para a interface. Após fazer o carregamento do ficheiro, é possível ver as publicações do mesmo. Ao clicar no botão `VERIFICAR PUBLICAÇÕES DISPONÍVEIS` conseguimos ver uma tabela com o título, keywords, e data de publicação de todas as publicações. Ao clicar numa publicação, uma nova janela abre, onde se pode ver as informações detalhadas da mesma. 
 
 ### Exemplos de Funcionamento da Interface
-![imagem 1](https://drive.google.com/file/d/11mooRoyZ15lcenU5hx4yv4jcrLwgAU49/view?usp=sharing)
+
 
 ## Considerações Finais
 Este sistema foi projetado para auxiliar na gestão de grandes volumes de dados de publicações científicas, fornecendo funcionalidades intuitivas e análises visuais para facilitar a tomada de decisões e a compreensão de métricas importantes.
