@@ -1,6 +1,6 @@
 import FreeSimpleGUI as sg
 from interface_auxiliares import *
-from ficheiros import *
+from functions import *
 
 
 #Modelo de Dados

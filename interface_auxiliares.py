@@ -1,10 +1,11 @@
 import FreeSimpleGUI as sg
-from ficheiros import *
+from functions import *
 
 
 def formatPostWindow (post, dataset):
     title = [sg.Text(f"{dataset[post]['title']}", font= ('Arial', 17))]
-    abstract = ""
+    titleAuthors = [sg.Text(f"Autores:", font= ('Arial', 15, "bold"))]
+
     table = [['PDF', dataset[post]['pdf']], 
             ['DOI', dataset[post]['doi']], 
             ['URL', dataset[post]['url']]]
@@ -15,20 +16,20 @@ def formatPostWindow (post, dataset):
                       key = '-tabela_links-',
                       enable_events=True,
                       enable_click_events = True,
-                      num_rows=min(len(table), 10))]
+                      num_rows=3,
+                      )]
     authorLine = []
-    postWindowLayout = [title]
+    postWindowLayout = [title, titleAuthors]
     for author in dataset[post]['authors']:
         postWindowLayout.append([sg.Text(f"{author['name']}", font= ('Arial', 13))])
         if 'affiliation' in author:
             postWindowLayout.append([sg.Text(f"{author['affiliation']}", font= ('Arial', 10))])
-       
-    
+    titleAbstract = [sg.Text(f"Abstract:", font= ('Arial', 15, "bold"))]
     abstract = [sg.Multiline(f"{dataset[post]['abstract']}", font = ('Arial', 12), size=(None,5), expand_x=True, expand_y=True, disabled=True)]
-
+    postWindowLayout.append(titleAbstract)
     postWindowLayout.append(abstract)
-    postWindowLayout.append([sg.Button('Fechar', key = '-FECHAR-')])
     postWindowLayout.append(tableLink)
+    postWindowLayout.append([sg.Button('Fechar', key = '-FECHAR-')])
     return postWindowLayout
 
 def createTable (dataset):
