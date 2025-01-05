@@ -134,9 +134,11 @@ Que operação deseja executar?
 ### Exemplos de Funcionamento da Interface
 Ao escrever `python interface.py` no terminal, aparece a primeira janela:
 ![imagem 1](https://github.com/mcrpinheiro/ProjetoATP/blob/main/Interface1.png)
+
 Após carregar o ficheiro `ata_medica_papers.json`, ao clicar no botão `Verificar Publicações Disponíveis`, podemos observar uma tabela com as publicaações deste ficheiro:
-![imagem 2][https://github.com/mcrpinheiro/ProjetoATP/blob/main/Interface2.png]
+![imagem 2](https://github.com/mcrpinheiro/ProjetoATP/blob/main/Interface2.png)
+
 Ao selecionarmos a primeira linha da tabela, conseguimos observar todas as informações relevantes a esta publicação, como podemos observar abaixo:
-![imagem 3][https://github.com/mcrpinheiro/ProjetoATP/blob/main/Interface3.png]
+![imagem 3](https://github.com/mcrpinheiro/ProjetoATP/blob/main/Interface3.png)
 
 
