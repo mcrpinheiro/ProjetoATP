@@ -1,5 +1,7 @@
 import FreeSimpleGUI as sg
 from functions import *
+from threading import Thread
+from time import sleep
 
 
 def formatPostWindow (post, dataset):
@@ -18,13 +20,15 @@ def formatPostWindow (post, dataset):
                       enable_click_events = True,
                       num_rows=3,
                       )]
-    authorLine = []
     postWindowLayout = [title, titleAuthors]
     for author in dataset[post]['authors']:
         postWindowLayout.append([sg.Text(f"{author['name']}", font= ('Arial', 13))])
         if 'affiliation' in author:
             postWindowLayout.append([sg.Text(f"{author['affiliation']}", font= ('Arial', 10))])
-    titleAbstract = [sg.Text(f"Abstract:", font= ('Arial', 15, "bold"))]
+    if 'keywords' in dataset[post]: 
+        keywords = [sg.Text(f"Keywords: {dataset[post]['keywords']}", font= ('Arial', 12))]
+        postWindowLayout.append(keywords)
+    titleAbstract = [sg.Text(f"Abstract:", font= ('Arial', 13, "bold"))]
     abstract = [sg.Multiline(f"{dataset[post]['abstract']}", font = ('Arial', 12), size=(None,5), expand_x=True, expand_y=True, disabled=True)]
     postWindowLayout.append(titleAbstract)
     postWindowLayout.append(abstract)
@@ -52,7 +56,6 @@ def openPostsWindow(dataset):
     else:
         dados_tabela = createTable(dataset)
         cabecalho = ["Title", "Keywords", "Date"]
-        ##interface
         layout = [
             [sg.Text(f"Publicações Disponíveis", font= ('Arial', 20))],
             [sg.Table(values= dados_tabela, font = ('Arial', 12), headings= cabecalho, 
@@ -76,20 +79,14 @@ def openPostsWindow(dataset):
                 stop = True
             elif isinstance(event, tuple):
                 _, _, (row, _) = event
-                selectedPostLayout = [
-                [sg.Column(formatPostWindow(row,dataset), element_justification='left', 
-                expand_x=True,
-                expand_y=True)],
-                [sg.HSep()]
-]
-                selectedPost_window = sg.Window(f"Publicação Selecionada", formatPostWindow(row,dataset), 
+                if row!= -1:
+                    selectedPost_window = sg.Window(f"Publicação Selecionada", formatPostWindow(row,dataset), 
                                   modal= False, font= ('Arial', 12), 
                                   location= (200, 200), resizable = True, finalize = True)
-                stop2 = False
-                while not stop2:
-                    postEvent,_ = selectedPost_window.read()
-                    if postEvent in [sg.WINDOW_CLOSED, '-FECHAR-']:
-                        selectedPost_window.close()
-                        stop2 = True
-                print(dataset[row])
+                    stop2 = False
+                    while not stop2:
+                        postEvent,_ = selectedPost_window.read()
+                        if postEvent in [sg.WINDOW_CLOSED, '-FECHAR-']:
+                            selectedPost_window.close()
+                            stop2 = True
         posts_window.close()

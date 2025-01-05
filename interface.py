@@ -2,12 +2,9 @@ import FreeSimpleGUI as sg
 from interface_auxiliares import *
 from functions import *
 
+dataset = []
 
-#Modelo de Dados
-dataset = loadFile('ata_medica_papers.json')
 
-#Layout de Interface
-#2blocos com divisão -> 3 linhas
 
 sg.theme('darkgrey11')
 
@@ -17,24 +14,15 @@ menu_layout = [
     [sg.Button("Carregar", key = '-CARREGAR-', font=('Arial', 15))],
     [sg.Button("Sair", key = '-SAIR-', font=('Arial', 15))] 
 ]
-'''[sg.Button("Gravar", key = '-GRAVAR-')],
-        [sg.Text('Cursos Disponíveis:')],
-        [sg.Listbox(values = [], size=(12,6), key = '-lista_cursos-', enable_events=True)],
-        '''
+
 
 layout = [
-    [sg.Column(menu_layout, element_justification='centre'),
-     ]
+    [sg.Column(menu_layout, element_justification='centre')]
 ]
 
-#Escolha do tema
-
-#Criar a janela
 window = sg.Window("Sistema de Consulta e Análise de Publicações Científicas", layout, font= ('Helvetica', 24), element_justification='c')
 
-#Event Listener
 stop = False
-
 while not stop:
     event, values = window.read()
     if event in [sg.WINDOW_CLOSED, '-SAIR-']:
