@@ -107,7 +107,6 @@ def deletePost (key, targetInfo, dataset):
         for post in dataset:
             if not doesAuthorExist(targetInfo,post):
                 newDataset.append(post)    
-    if newDataset == dataset: print('Não conseguimos encontrar uma pubalicação com esta informação.')
     return newDataset
 
   

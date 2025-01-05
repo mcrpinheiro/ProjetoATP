@@ -84,8 +84,11 @@ def menu():
                     targetInfo = askForNonEmptyAnswer(f'Qual {(keyIdentificator(postIdentificator))} deseja pesquisar?', f'Por favor insira um {(keyIdentificator(postIdentificator))} válido.')
                 confirmDelete = input(f"Deseja apagar a ata com {keyIdentificator(postIdentificator)} correspondente a {targetInfo}? S/N")
                 if confirmDelete in ['S', 's']: 
-                    newData = deletePost(postIdentificator, targetInfo, newData)
-                    print ("Ata apagada com sucesso!")
+                    if deletePost(postIdentificator, targetInfo, newData) == newData: 
+                        print('Não conseguimos encontrar uma pubalicação com esta informação.')
+                    else: 
+                        newData = deletePost(postIdentificator, targetInfo, newData)
+                        print ("Ata apagada com sucesso!")
                     selectedOption = input(selectiveMenu)
                 else: 
                     selectedOption = '5'
