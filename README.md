@@ -132,8 +132,11 @@ Que operação deseja executar?
 * Primeiramente, é necessário carregar um ficheiro JSON para a interface. Após fazer o carregamento do ficheiro, é possível ver as publicações do mesmo. Ao clicar no botão `VERIFICAR PUBLICAÇÕES DISPONÍVEIS` conseguimos ver uma tabela com o título, keywords, e data de publicação de todas as publicações. Ao clicar numa publicação, uma nova janela abre, onde se pode ver as informações detalhadas da mesma. 
 
 ### Exemplos de Funcionamento da Interface
+Ao escrever `python interface.py` no terminal, aparece a primeira janela:
 ![imagem 1](https://github.com/mcrpinheiro/ProjetoATP/blob/main/Interface1.png)
+Após carregar o ficheiro `ata_medica_papers.json`, ao clicar no botão `Verificar Publicações Disponíveis`, podemos observar uma tabela com as publicaações deste ficheiro:
+![imagem 2][https://github.com/mcrpinheiro/ProjetoATP/blob/main/Interface2.png]
+Ao selecionarmos a primeira linha da tabela, conseguimos observar todas as informações relevantes a esta publicação, como podemos observar abaixo:
+![imagem 3][https://github.com/mcrpinheiro/ProjetoATP/blob/main/Interface3.png]
 
-## Considerações Finais
-Este sistema foi projetado para auxiliar na gestão de grandes volumes de dados de publicações científicas, fornecendo funcionalidades intuitivas e análises visuais para facilitar a tomada de decisões e a compreensão de métricas importantes.
 
