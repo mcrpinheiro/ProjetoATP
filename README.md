@@ -69,7 +69,9 @@ A linha de comando funciona através de uma função principal `menu()`, onde ca
 Para ativar a linha de comandos, deverá ser escrito no terminal `python command_line.py`.
 
 * Resultado de esquisar uma publicação através do nome de autor 'R Anjos':
-```Bem vindo ao sistema de consulta e análise de publicações científicas. Que operação deseja executar?
+```
+python command_line.py
+Bem vindo ao sistema de consulta e análise de publicações científicas. Que operação deseja executar?
                             (1) Ajuda
                             (2) Criar Publicação
                             (3) Consulta de Publicação

@@ -20,11 +20,11 @@ def menu():
                     (3) Consulta de Publicação: consultar as informações detalhadas de uma publicação especificada pelo utilizador
                     (4) Consultar Publicações: lista as informações mais importantes de todas as publicações presentes no sistema 
                     (5) Eliminar Publicação: eliminar uma publicação especificada pelo utilizador
-                    (6) Relatório de Estatísticas: gerar estatísticas de acordo com a distribuição pedida
+                    (6) Relatório de Estatísticas: gerar estatísticas do número de publicações por ano
                     (7) Listar Autores: lista todos os autores existentes na base de dados fornecida.
                     (8) Importar Publicações: importa uma base de dados de um ficheiro JSON.
                     (9) Guardar Publicações: atualizar a base de dados com novas informações fornecidas
-                    (0) Sair''')
+                    (0) Sair: sair do programa''')
     keyMenu = ('''Qual campo vai ser o identificador da ata desejada? Selecione o número correspondente:
                (1) Abstract
                (2) Nome de um Autor

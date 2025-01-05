@@ -96,13 +96,19 @@ def deletePost (key, targetInfo, dataset):
     newDataset = [] #novo data set para mover as atas
     if selectedOption in ['abstract', 'doi', 'pdf', 'title', 'url']:
         for post in dataset:
-            if targetInfo != post[selectedOption]:
+            if selectedOption in post:
+                if targetInfo != post[selectedOption]:
+                    newDataset.append(post)
+            else:
                 newDataset.append(post)
     elif selectedOption == 'publish_date':
        if isDate(targetInfo):
            for post in dataset:
-               if targetInfo != post[selectedOption]:
-                newDataset.append(post)
+                if selectedOption in post:
+                    if targetInfo != post[selectedOption]:
+                        newDataset.append(post)
+                else:
+                    newDataset.append(post)
     elif selectedOption == 'authors':# stop
         for post in dataset:
             if not doesAuthorExist(targetInfo,post):
