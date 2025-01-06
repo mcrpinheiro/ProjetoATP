@@ -48,7 +48,7 @@ def menu():
             print(helpMenu)
             selectedOption = input('Deseja realizar alguma destas operações?')
         elif selectedOption == '2':
-            insertNew(newData)
+            newData = insertNew(newData)
             print('Publicação adicionada com sucesso!')
             selectedOption = input(selectiveMenu)
         elif selectedOption == '3':
@@ -63,7 +63,7 @@ def menu():
                     targetInfo = askForValidDate('Qual data deseja pesquisar?', 'Por favor insira uma data válida no formato AAAA-MM-DD.')
                 else:
                     targetInfo = askForNonEmptyAnswer(f'Qual {(keyIdentificator(postIdentificator))} deseja pesquisar?', f'Por favor insira um {(keyIdentificator(postIdentificator))} válido.')
-                post = findPost(postIdentificator, targetInfo, data)
+                post = findPost(postIdentificator, targetInfo, newData)
                 if post!= "": print(post)
                 else: print('Não foi encontrada uma publicação com estes dados.')
                 selectedOption = input(selectiveMenu)
